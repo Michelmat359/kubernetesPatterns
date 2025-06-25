@@ -1,0 +1,5 @@
+apiVersion: v2
+name: pattern2-microservices
+version: 0.1.0
+appVersion: "1.0"
+description: Despliegue basado en microservicios para ROS 2

@@ -1,0 +1,4 @@
+image:
+  repository: myregistry/ros-dynamic
+  tag: latest
+modelUrl: https://example.com/models/latest

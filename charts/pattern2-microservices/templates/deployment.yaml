@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservices-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservices
+  template:
+    metadata:
+      labels:
+        app: microservices
+    spec:
+      containers:
+        - name: perception
+          image: "{{ .Values.images.perception }}"
+          # Contenedor especializado en tareas de visión
+        - name: controller
+          image: "{{ .Values.images.controller }}"
+          # Contenedor que coordina el robot
