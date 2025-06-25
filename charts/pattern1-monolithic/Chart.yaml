@@ -1,0 +1,5 @@
+apiVersion: v2
+name: pattern1-monolithic
+version: 0.1.0
+appVersion: "1.0"
+description: Despliegue monolítico de ROS 2 con IA

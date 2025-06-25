@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overlay-workspace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: overlay-workspace
+  template:
+    metadata:
+      labels:
+        app: overlay-workspace
+    spec:
+      containers:
+      - name: overlay
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            # Descarga e instala paquetes ROS 2 especificados en values.yaml
+            for pkg in {{ .Values.packages | join " " }}; do
+              sudo apt-get update && sudo apt-get install -y $pkg;
+            done;
+            exec ros2 launch app overlay_launch.py

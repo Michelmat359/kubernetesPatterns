@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dynamic-loading-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dynamic-loading
+  template:
+    metadata:
+      labels:
+        app: dynamic-loading
+    spec:
+      containers:
+        - name: dynamic-loader
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          env:
+            - name: MODEL_URL
+              value: "{{ .Values.modelUrl }}"
+          # El contenedor descarga el modelo en el arranque

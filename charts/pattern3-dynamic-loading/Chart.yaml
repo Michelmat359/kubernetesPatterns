@@ -1,0 +1,5 @@
+apiVersion: v2
+name: pattern3-dynamic-loading
+version: 0.1.0
+appVersion: "1.0"
+description: Despliegue con carga dinámica de modelos

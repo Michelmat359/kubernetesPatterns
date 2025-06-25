@@ -1,0 +1,3 @@
+images:
+  perception: myregistry/ros-perception:latest
+  controller: myregistry/ros-controller:latest

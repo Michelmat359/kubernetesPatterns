@@ -1,0 +1,6 @@
+image:
+  repository: myregistry/ros-overlay
+  tag: latest
+packages:
+  - perception_pkg
+  - navigation_pkg
