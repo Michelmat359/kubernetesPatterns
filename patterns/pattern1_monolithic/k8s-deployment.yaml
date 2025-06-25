@@ -1,0 +1,21 @@
+# Despliegue Kubernetes para el Patrón 1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monolithic-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monolithic
+  template:
+    metadata:
+      labels:
+        app: monolithic
+    spec:
+      containers:
+      - name: monolithic
+        image: myregistry/ros-monolithic:latest
+        ports:
+        - containerPort: 8080
+        # En esta imagen se encuentran todos los modelos de IA
